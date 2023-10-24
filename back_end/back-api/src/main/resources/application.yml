@@ -1,2 +1,64 @@
 server:
   port: 9898
+spring:
+  profiles:
+    active: "dev"
+  aop:
+    auto: true
+    proxy-target-class: true
+  servlet:
+    multipart: # 文件上传
+      enabled: true
+      max-request-size: 15MB
+      max-file-size: 10MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://127.0.0.1:3306/dbname?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false"
+    username: root
+    password:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari: # HikariCP数据库连接池
+      minimum-idle: 1 #最小连接数
+      maximum-pool-size: 10 #最大连接数
+      auto-commit: true #自动提交
+
+  data:
+    redis:
+      host: "127.0.0.1"
+      port: 6379
+      password:
+      database: 0
+      timeout: 5000
+      lettuce:
+        pool:
+          max-wait: 30000 #连接池最大阻塞等待时间(默认-1)
+          max-active: 100 #连接池中最大连接数
+          max-idle: 20 #连接池中最大空闲连接(默认8)
+          min-idle: 1 # 连接池中最小空闲连接(默认0)
+  task:
+    execution:
+      pool:
+        max-size: 4 # 最大线程数量
+        core-size: 2 # 初始化线程数量
+        queue-capacity: 10000 # 队列最大长度
+        keep-alive: 60s # 线程终止前允许保存的最大时间
+      shutdown:
+        await-termination: true # 等待线程执行完再关闭程序
+      thread-name-prefix: "" # 定义线程池中线程的名称前缀
+
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+mybatis-plus:
+  global-config:
+    banner: false
+
+sa-token:
+  token-name: "Authorization" # 存储token的请求头
+  timeout: 1296000 # token有效期[单位：秒]
+  is-concurrent: false # 限制同时登录
+  is-share: false # 这个属性控制token是否共享
+  jwt-secret-key: "back_end" # 生产jwt的密匙
+  token-prefix: "Bearer" # token前缀
