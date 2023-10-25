@@ -62,3 +62,10 @@ sa-token:
   is-share: false # 这个属性控制token是否共享
   jwt-secret-key: "back_end" # 生产jwt的密匙
   token-prefix: "Bearer" # token前缀
+
+back_end:
+  core:
+    testing: false
+  limiter:
+    duration: 60
+    limit: 360
