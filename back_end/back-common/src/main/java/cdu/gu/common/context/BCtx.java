@@ -1,6 +1,10 @@
 package cdu.gu.common.context;
 
+import cdu.gu.common.pojo.AdminUser;
+
+import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class BCtx {
     private static final ThreadLocal<LinkedHashMap<String, Object>> THREAD_LOCAL =
@@ -30,6 +34,25 @@ public class BCtx {
     public static void remove(){THREAD_LOCAL.remove();}
     public static Integer getId(){return (Integer) get(KEY_ADMIN_USER_ID);}
     public static void setId(Integer userId){put(KEY_ADMIN_USER_ID,userId);}
-    public static AdminUser
+    public static AdminUser getAdminUser(){return (AdminUser) get(KEY_ADMIN_USER);}
+    public static void setAdminUser(AdminUser adminUser) {
+        put(KEY_ADMIN_USER, adminUser);
+    }
+
+    public static void setAdminPer(HashMap<String, Boolean> permissions) {
+        put(KEY_ADMIN_PER, permissions);
+    }
+
+    public static HashMap<String, Boolean> getAdminPer() {
+        return (HashMap<String, Boolean>) get(KEY_ADMIN_PER);
+    }
+
+    public static void setConfig(Map<String, String> config) {
+        put(KEY_CONFIG, config);
+    }
+
+    public static Map<String, String> getConfig() {
+        return (Map<String, String>) get(KEY_CONFIG);
+    }
 
 }
