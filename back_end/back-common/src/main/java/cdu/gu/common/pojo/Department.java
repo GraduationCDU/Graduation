@@ -1,5 +1,6 @@
 package cdu.gu.common.pojo;
 
+
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -10,30 +11,32 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.Date;
 
-@TableName(value = "admin_permissions")
+@TableName(value = "departments")
 @Data
-public class AdminPermission implements Serializable {
+public class Department implements Serializable {
+    /** */
     @TableId(type = IdType.AUTO)
     private Integer id;
 
-    /** 类型[行为:action,数据:data] */
-    private String type;
+    /** 部门名 */
+    private String name;
 
-    /** 分组 */
-    @JsonProperty("group_name")
-    private String groupName;
+    /** 父id */
+    @JsonProperty("parent_id")
+    private Integer parentId;
+
+    /** 父链 */
+    @JsonProperty("parent_chain")
+    private String parentChain;
 
     /** 升序 */
     private Integer sort;
 
-    /** 权限名 */
-    private String name;
-
-    /** slug */
-    private String slug;
-
     @JsonProperty("created_at")
     private Date createdAt;
+
+    @JsonProperty("updated_at")
+    private Date updatedAt;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -49,26 +52,26 @@ public class AdminPermission implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        AdminPermission other = (AdminPermission) that;
+        Department other = (Department) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-                && (this.getType() == null
-                ? other.getType() == null
-                : this.getType().equals(other.getType()))
-                && (this.getGroupName() == null
-                ? other.getGroupName() == null
-                : this.getGroupName().equals(other.getGroupName()))
-                && (this.getSort() == null
-                ? other.getSort() == null
-                : this.getSort().equals(other.getSort()))
                 && (this.getName() == null
                 ? other.getName() == null
                 : this.getName().equals(other.getName()))
-                && (this.getSlug() == null
-                ? other.getSlug() == null
-                : this.getSlug().equals(other.getSlug()))
+                && (this.getParentId() == null
+                ? other.getParentId() == null
+                : this.getParentId().equals(other.getParentId()))
+                && (this.getParentChain() == null
+                ? other.getParentChain() == null
+                : this.getParentChain().equals(other.getParentChain()))
+                && (this.getSort() == null
+                ? other.getSort() == null
+                : this.getSort().equals(other.getSort()))
                 && (this.getCreatedAt() == null
                 ? other.getCreatedAt() == null
-                : this.getCreatedAt().equals(other.getCreatedAt()));
+                : this.getCreatedAt().equals(other.getCreatedAt()))
+                && (this.getUpdatedAt() == null
+                ? other.getUpdatedAt() == null
+                : this.getUpdatedAt().equals(other.getUpdatedAt()));
     }
 
     @Override
@@ -76,12 +79,12 @@ public class AdminPermission implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
-        result = prime * result + ((getGroupName() == null) ? 0 : getGroupName().hashCode());
-        result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getSlug() == null) ? 0 : getSlug().hashCode());
+        result = prime * result + ((getParentId() == null) ? 0 : getParentId().hashCode());
+        result = prime * result + ((getParentChain() == null) ? 0 : getParentChain().hashCode());
+        result = prime * result + ((getSort() == null) ? 0 : getSort().hashCode());
         result = prime * result + ((getCreatedAt() == null) ? 0 : getCreatedAt().hashCode());
+        result = prime * result + ((getUpdatedAt() == null) ? 0 : getUpdatedAt().hashCode());
         return result;
     }
 
@@ -92,12 +95,12 @@ public class AdminPermission implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", type=").append(type);
-        sb.append(", groupName=").append(groupName);
-        sb.append(", sort=").append(sort);
         sb.append(", name=").append(name);
-        sb.append(", slug=").append(slug);
+        sb.append(", parentId=").append(parentId);
+        sb.append(", parentChain=").append(parentChain);
+        sb.append(", sort=").append(sort);
         sb.append(", createdAt=").append(createdAt);
+        sb.append(", updatedAt=").append(updatedAt);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
