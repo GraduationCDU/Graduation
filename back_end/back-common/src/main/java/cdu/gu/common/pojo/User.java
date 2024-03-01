@@ -1,6 +1,5 @@
 package cdu.gu.common.pojo;
 
-import cdu.gu.common.bus.BackendBus;
 import cdu.gu.common.constant.BPermissionConstant;
 import cdu.gu.common.constant.BackendConstant;
 import com.baomidou.mybatisplus.annotation.IdType;

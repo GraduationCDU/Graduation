@@ -3,6 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Graduation project.iml" filepath="$PROJECT_DIR$/.idea/Graduation project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/back_end/back-api/back-api.iml" filepath="$PROJECT_DIR$/back_end/back-api/back-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/back_end/back-common/back-common.iml" filepath="$PROJECT_DIR$/back_end/back-common/back-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/back_end/back-course/back-course.iml" filepath="$PROJECT_DIR$/back_end/back-course/back-course.iml" />
+      <module fileurl="file://$PROJECT_DIR$/back_end/back-resource/back-resource.iml" filepath="$PROJECT_DIR$/back_end/back-resource/back-resource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/back_end/back-system/back-system.iml" filepath="$PROJECT_DIR$/back_end/back-system/back-system.iml" />
       <module fileurl="file://$PROJECT_DIR$/back_end/back_end.iml" filepath="$PROJECT_DIR$/back_end/back_end.iml" />
     </modules>
   </component>

@@ -6,16 +6,30 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="back_end" />
+        <module name="back-course" />
+        <module name="back-resource" />
+        <module name="back-system" />
+        <module name="back-api" />
+        <module name="back-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="back_end" target="11" />
+      <module name="back-api" target="17" />
+      <module name="back-common" target="17" />
+      <module name="back-course" target="17" />
+      <module name="back-resource" target="17" />
+      <module name="back-system" target="17" />
+      <module name="back_end" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="back_end" options="-parameters" />
+      <module name="back-api" options="-parameters" />
+      <module name="back-common" options="-parameters" />
+      <module name="back-course" options="-parameters" />
+      <module name="back-resource" options="-parameters" />
+      <module name="back-system" options="-parameters" />
+      <module name="back_end" options="" />
     </option>
   </component>
 </project>
